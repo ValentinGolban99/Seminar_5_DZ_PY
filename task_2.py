@@ -4,6 +4,7 @@ def print_tabl():
     print(ryad_2)
     print(ryad_3)
 
+
 ryad_1 = [1, 2, 3]
 ryad_2 = [4, 5, 6]
 ryad_3 = [7, 8, 9]
@@ -29,6 +30,8 @@ while not win:
             ryad_3.pop(us_1 - 7)
             ryad_3.insert(us_1 - 7, 'X')
             print_tabl()
+        # elif win_1() or win_2() or win_3() or win_4() or win_5() or win_6() or win_7() or win_8():
+        #     win = True
         move_counter += 1
     elif move_counter == 1:
         us_2 = int(input(f"{user_2} введите куда поставить нолик: "))
@@ -44,6 +47,8 @@ while not win:
             ryad_3.pop(us_2 - 7)
             ryad_3.insert(us_2 - 7, 'O')
             print_tabl()
+        # elif win_11() or win_22() or win_33() or win_44() or win_55() or win_66() or win_77() or win_88():
+        #     win = True
         move_counter -= 1
 
 print_tabl()
