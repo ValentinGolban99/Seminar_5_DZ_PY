@@ -8,28 +8,44 @@
 
 user_1 = str(input('Игрок 1: '))
 user_2 = str(input('Игрок 2: '))
-candies = 2021
+candies = 202
 move_counter = 0
-while candies != 0:
-    us_1 = int(input(f"{user_1} возьмите конфеты(не более 28): "))
-    if us_1 <= 28:
-        move_counter += 1
-        candies -= us_1
-        print(f"Осталось {candies} конфет.")
+number_progress = 0
+while candies > 0:
+    if move_counter == 0:
+        us_1 = int(input(f"{user_1} возьмите конфеты(не более 28): "))
+        if us_1 <= 28:
+            number_progress += 1
+            move_counter += 1
+            candies -= us_1
+            print(f"Осталось {candies} конфет.")
+        else:
+            print(f"{user_1} введите число меньше или равное 28!")
+            move_counter = 0
         if candies == 0:
-            print(f"Победил: {user_1}")
-
-    us_2 = int(input(f"{user_2} возьмите конфеты(не более 28): "))
-    if us_2 <= 28:
-        move_counter += 1
-        candies -= us_2
-        print(f"Осталось {candies} конфет.")
+            print(f"Победил: {user_1}. Игра закончена за {number_progress} хода(ов).")
+    elif move_counter == 1:
+        us_2 = int(input(f"{user_2} возьмите конфеты(не более 28): "))
+        if us_2 <= 28:
+            number_progress += 1
+            move_counter -= 1
+            candies -= us_2
+            print(f"Осталось {candies} конфет.")
+        else:
+            print(f"{user_2} введите число меньше или равное 28!")
+            move_counter = 1
         if candies == 0:
-            print(f"Победил: {user_2}")
+            print(f"Победил: {user_2}. Игра закончена за {number_progress} хода(ов).")
 
+# Вот..
+# Сейчас получилось что то дельное.
+# Но нет случая, если пользователь введет например: 23, когда для победы останется 5. 
 
-print(f"Игра закончена за {move_counter} хода(ов).")
-    
+# Т.е не учтен вывод победителя с учетом минусового значения:
+# Осталось 10 конфет.
+# rr возьмите конфеты(не более 28): 11
+# Осталось -1 конфет.
+# Победил: rr. Игра закончена за 9 хода(ов).
 
 
 
